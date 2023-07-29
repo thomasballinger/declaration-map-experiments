@@ -1,0 +1,30 @@
+{
+  "name": "example-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && api-extractor run && esbuild --sourcemap --bundle src/index.ts --outfile=dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist"
+  },
+  "exports": {
+    "normal-typescript": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "api-extractor": {
+      "types": "./dist/rollup.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@microsoft/api-extractor": "^7.36.3",
+    "esbuild": "^0.18.17",
+    "typescript": "^5.1.6"
+  }
+}
